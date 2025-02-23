@@ -1,0 +1,21 @@
+@walletId = "80d17a53-d7d2-403f-978d-3e9f2336b53b"
+@assetId = "9e180ad9-66bd-43bc-9edb-8cfc99a1f87b"
+
+# @name createOrder
+Post http://localhost:3000/orders
+Content-Type: application/json
+
+{
+    "walletId": {{walletId}},
+    "assetId": {{assetId}},
+    "shares": 100
+}
+
+###
+@orderId = {{ createOrder.response.body._id }}
+
+###
+Get http://localhost:3000/orders
+
+###
+Get http://localhost:3000/orders/{{ orderId }}

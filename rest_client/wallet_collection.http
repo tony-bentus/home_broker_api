@@ -1,0 +1,12 @@
+# @name createWallet
+Post http://localhost:3000/wallets
+Content-Type: application/json
+
+###
+@walletId = {{ createWallet.response.body._id }}
+
+###
+Get http://localhost:3000/wallets
+
+###
+Get http://localhost:3000/wallets/{{ walletId }}
